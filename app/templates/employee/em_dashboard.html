@@ -1,0 +1,70 @@
+
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/em_dashboard.css' %}">
+<script src="{% static 'js/em_dashboard.js' %}"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Dashboard</title>
+</head>
+<body>
+    <h2>Employee Dashboard</h2>
+    <p class="logout">
+        <a href="{% url 'employee_logout' %}">Logout</a>
+    </p>
+    <!-- Filter & Search -->
+    <form method="get">
+        <label>Filter:</label>
+        <select name="filter" onchange="this.form.submit()">
+            <option value="today" {% if filter_option == 'today' %}selected{% endif %}>Today</option>
+            <option value="all" {% if filter_option == 'all' %}selected{% endif %}>All</option>
+        </select>
+        <input type="text" name="search" placeholder="Search by Booking ID" value="{{ search_ref }}">
+        <button type="submit">Search</button>
+    </form>
+    <!-- Bookings table -->
+    <table>
+        <tr>
+            <th>Booking ID</th>
+            <th>Email</th>
+            <th>Vehicle</th>
+            <th>Package</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Status</th>
+        </tr>
+        {% for b in bookings %}
+        <tr>
+            <td>{{ b.booking_id }}</td>
+            <td>{{ b.owner.email }}</td>
+            <td>{{ b.vehicle_id }}</td>
+            <td>{{ b.package_id }}</td>
+            <td>{{ b.booking_date }}</td>
+            <td>{{ b.booking_time }}</td>
+            <td>
+                <form method="POST" action="{% url 'update_booking_status' b.booking_id %}" class="status-form">
+                    {% csrf_token %}
+                    <select name="status" class="status-select" data-current="{{ b.booking_status }}">
+                        {% for key, value in status_choices %}
+                            <option value="{{ key }}" {% if b.booking_status == key %}selected{% endif %}>{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </form>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="7">No bookings found.</td></tr>
+        {% endfor %}
+    </table>
+        <!-- Confirmation Modal -->
+        <div id="confirm-box" class="confirm-box">
+            <div class="confirm-content">
+                <p>Are you sure you want to change the booking status?</p>
+                <div class="btn-group">
+                    <button type="button" id="confirm-yes">Yes</button>
+                    <button type="button" id="confirm-no">Cancel</button>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/index.css' %}">
+<script src="{% static 'js/index.js' %}"></script>
+
+<div class="top-section">
+    <div class="top-box">
+    </div><img class="home-top" src="{% static 'image/home-page.jpg'%}" />
+    <div class="reg-frame">
+      <input class="reg-input" type="text" id="get_vehicle" style="text-transform: uppercase;"  placeholder="Vehicle Reg">
+      <div class="uk"></div>
+      <button class="reg-search-button" onclick="searchVehicle()"> Search </button>
+    </div>
+</div>
+
+<div class="middle-section-1">
+    <div class="middle-sub-box mot-group">
+        <div class="book-an-mot"> Book an MOT </div>
+        <div class="mot-description"> Book a Car MOT Online Now (Only £45 inc VAT)</div>
+    </div>
+    <div class="middle-sub-box service-group">
+        <div class="service-title"> Book A Car Service </div>
+        <div class="service-description"> Full service, interim service, or manufacturer-recommended service with prices starting from only £120. </div>
+    </div>
+    <div class="middle-sub-box money-group">
+        <img src="{% static 'image/home-money.jpg'%}" alt="Sample Image">
+    </div>
+</div>
+
+<div class="middle-section-2">
+    <div class="middle-sub-box text-box-1">
+      <div class="why-title"> Why choose T-Fit </div>
+      <div class="text-box-description"> Highly-Trained Technicians You Can Trust: 
+            Your safety on the road is our top priority. That’s why every T-Fit technician goes through an industry-leading, Ofsted-accredited training programme before they ever touch your car. 
+            From inspections to servicing and repairs, our experts bring not only skill but also precision and care.
+            When you choose T-Fit, you’re choosing peace of mind, reliability, and the best hands in the trade. </div>
+    </div>
+</div>
+
+<div class="contact-section">
+  <div class="middle-sub-box map-container">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d621.1670865747091!2d-0.6073821725964139!3d51.48260172220945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2suk!4v1749422751693!5m2!1sen!2suk"
+      width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+  <div class="hours-container">
+    <h3>Opening Hours</h3>
+    <ul>
+      <li>Mon–Fri: 9:00 AM – 5:00 PM</li>
+      <li>Saturday: 9:00 AM – 5:00 PM</li>
+      <li>Sunday: Closed</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock %}

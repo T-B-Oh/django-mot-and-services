@@ -1,0 +1,127 @@
+/* ==== Service ===== */
+.hero {
+  background: url("../image/servicing-page.png") center/cover no-repeat;
+  padding: 20px 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 150px;
+}
+
+.hero-content {
+  padding: 50px;
+  max-width: 800px;
+  border-radius: 10px;
+  position: relative;
+  z-index: 1;
+  text-align: left;
+  color: white;
+}
+
+.hero h1 {
+  color: #474536;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+/* ===== Service Range ======= */
+.range {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.range h2 {
+  margin-bottom: 30px;
+  font-size: 28px;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.card {
+  background: #fff;
+  width: 300px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+.card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.card h3 {
+  margin: 15px 0 10px;
+}
+
+.card ul {
+  padding-left: 20px;
+  margin-bottom: 15px;
+}
+
+.card ul li {
+  margin-bottom: 5px;
+}
+
+.booking-btn {
+  display: inline-block;
+  background-color: #c49b3d;
+  color: white;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  text-align: center;
+}
+
+.booking-btn:hover {
+  background-color: #e7dec5;
+  text-decoration: none;
+  color: #333333;
+}
+
+
+/* ==== Info box ==== */
+.faq {
+  background: #d7d4cd;
+  padding: 50px 20px;
+}
+
+.faq-box {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.faq-box h3 {
+  margin-bottom: 15px;
+}
+
+.faq-box p {
+  margin-bottom: 12px;
+}
+
+.explore {
+  margin-top: 15px;
+  background: #292929;
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.explore:hover {
+  background: #868686;
+}

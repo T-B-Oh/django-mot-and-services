@@ -1,0 +1,36 @@
+{% extends 'booking/base.html' %}
+{% load static %}
+{% block content %}
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+<link rel="stylesheet" href="{% static 'css/offers.css' %}">
+<script src="{% static 'js/offers.js' %}"></script>
+
+
+  <section class="special-offers">
+    <div class="banner">SPECIAL OFFERS</div>
+    <div class="offers-container">
+      <div class="offer-card">
+        <div class="card-bg">
+          <h2>£25 OFF</h2>
+          <p><strong>Interim Service + MOT</strong></p>
+          {% with package=data.0 %}
+            <p class="price">Only <strong>£{{ package.price }}</strong> <span>inc vat</span></p>
+          {% endwith %}
+        </div>
+            <a href="/checkout" class="booking-btn add-selection" data-code="{{ 5 }}">Book</a>
+      </div>
+      <div class="offer-card">
+        <div class="card-bg">
+          <h2>£25 OFF</h2>
+          <p><strong>Full Service + MOT</strong></p>
+          {% with package=data.1 %}
+            <p class="price">Only <strong>£{{ package.price }}</strong> <span>inc vat</span></p>
+          {% endwith %}
+        </div>
+            <a href="/checkout" class="booking-btn add-selection" data-code="{{ 6 }}">Book</a>
+      </div>
+    </div>
+  </section>
+
+{% endblock %}

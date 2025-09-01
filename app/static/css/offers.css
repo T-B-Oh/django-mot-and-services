@@ -1,0 +1,75 @@
+body {
+  margin-top: 50px;
+}
+
+.special-offers {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 15px;
+}
+
+.banner {
+  background-color: #f5cf5e;
+  color: white;
+  font-weight: bold;
+  font-size: 24px;
+  padding: 20px;
+  text-align: center;
+}
+
+.offers-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.offer-card {
+  width: 300px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-bg {
+  background: linear-gradient(to top, #d9a441, #bccbda);
+  padding: 30px 20px 20px;
+  text-align: left;
+}
+
+.card-bg h2 {
+  font-size: 28px;
+  margin: 0 0 10px;
+}
+
+.card-bg p {
+  margin: 8px 0;
+  font-size: 16px;
+}
+
+.price strong {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.price span {
+  font-size: 12px;
+  vertical-align: super;
+}
+
+.booking-btn {
+  display: block;
+  background-color: #c93340;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.booking-btn:hover {
+  background-color: #631b21;
+  color: rgb(170, 170, 170);
+  text-decoration: none;
+}
+

@@ -1,0 +1,130 @@
+{% extends 'booking/base.html'%}
+{%block content%}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+<script src="{% static 'js/dashboard.js' %}" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Side Navigation Bar -->
+<div class="sidenav">
+        <a onclick="showSection('upcoming')">Upcoming Bookings</a>
+        <a onclick="showSection('previous')">Previous Bookings</a>
+        <a onclick="showSection('profile')">Profile</a>
+    <div class="nav-images">
+        <img src="{% static 'image/sidelogo1.png'%}" class="nav-img-box">
+        <img src="{% static 'image/sidelogo2.png' %}" class="nav-img-box">
+        <img src="{% static 'image/sidelogo3.png' %}" class="nav-img-box">
+    </div>
+</div>
+<div class="content-wrapper">
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <header>
+            <h3>User Dashboard</h3>
+        </header>
+        <!-- Upcoming Bookings Section -->
+        <div class="bookings" id="upcoming-section">
+            <div class="section-header">Upcoming Bookings</div>
+            <ul class="booking-list">
+                {% for booking in upcoming %}
+                    <li class="booking-item">
+                    <form method="POST" action="{% url 'cancel-booking' booking.id %}" onsubmit="return confirmCancel();">
+                        {% csrf_token %}
+                        <p>Booking Reference: {{ booking.booking_id }}</p>
+                        <p>Vehicle: {{ booking.vehicle_id.reg }}</p>
+                        <p>Package: {{ booking.package_id }}</p>
+                        <p>Date: {{ booking.booking_date }}</p>
+                        <p>Time: {{ booking.booking_time }}</p>
+                        <button 
+                            type="button" 
+                            class="cancel-btn" 
+                            data-bs-toggle="modal" 
+                            data-bs-target="#confirmCancelModal"
+                            data-cancel-url="{% url 'cancel-booking' booking.id %}">
+                            Cancel
+                        </button>
+                        <br></br>
+                    </form>
+                {% empty %}
+                    <p>No upcoming bookings.</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- Previous and cancelled Bookings Section -->
+        <div class="bookings" id="previous-section" style="display: none;">
+            <div class="section-header">Previous Bookings</div>
+            <ul class="booking-list">
+                {% for booking in previous %}
+                    <li class="booking-item">
+                        <p>Booking Reference: {{ booking.booking_id }}</p>
+                        <p>Vehicle: {{ booking.vehicle_id.reg }}</p>
+                        <p>Package: {{ booking.package_id }}</p>
+                        <p>Date: {{ booking.booking_date }}</p>
+                        <p>Time: {{ booking.booking_time }}</p>
+                        <br></br>
+                    
+                {% empty %}
+                    <p>No previous bookings.</p>
+                    </li>
+                {% endfor %}
+            </ul>
+            <br></br>
+            {% if cancelled %}
+            <div id="cancelled-section">
+            <div class="cancelled-section-header">Cancelled Bookings</div>
+                {% for booking in cancelled %}
+                    <li class="booking-item">
+                        <p>Reference: {{ booking.booking_id }}</p>
+                        <p>Date: {{ booking.booking_date }}</p>
+                        <p>Time: {{ booking.booking_time }}</p>
+                        <p>Status: {{ booking.booking_status }}</p>
+                        <br>
+                    </li>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+
+        <!-- Profile Section -->
+        <div class="bookings" id="profile-section" style="display: none;">
+            <div class="section-header">Profile</div>
+            <ul class="booking-list">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ profile_form.as_p }}
+                    <button type="submit" name="profile_submit" class="btn">Save</button>
+                </form>
+            </ul>
+        </div>
+    </div>
+
+    <div class="image-box">
+        <img src="{% static 'image/dashboard-logo.gif' %}" class="vertical-img" />
+    </div>
+</div>
+
+<!-- cancellation pop up -->
+<div class="modal fade" id="confirmCancelModal" tabindex="-1" aria-labelledby="confirmCancelLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        <form method="POST" id="cancelForm" action="">
+            {% csrf_token %}
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmCancelLabel">Confirm Cancellation</h5>
+            </div>
+            <div class="modal-body">
+                Are you sure you want to cancel this booking?
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Yes</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+            </div>
+        </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

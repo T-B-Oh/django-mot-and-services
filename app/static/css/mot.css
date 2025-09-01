@@ -1,0 +1,203 @@
+/* ====== mot Section ====== */
+.mot-section {
+    width: 100%;
+    height: 500px;
+    background-image: url("../image/mot-page.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mot-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(41, 37, 23, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.mot-text {
+    color: white;
+    max-width: 800px;
+}
+
+.mot-title {
+    font-size: 48px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.mot-description {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+}
+
+.booking-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid #fcc953;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s, color 0.3s;
+    color: #c49b3d ;
+}
+
+.booking-btn:hover {
+    background: #fcc953;
+    color: black;
+    text-decoration: none;
+}
+
+h1 {
+    color: #ffffff;
+}
+
+/* ====== Service Offers Section ====== */
+.middle-section {
+    padding: 20px 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+}
+
+.service-offer-section {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.service-offer-block-1,
+.service-offer-block-2 {
+    background-color: #47453d;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    width: 500px;
+}
+
+.service-offer-block-1 .heading,
+.service-offer-block-2 .heading {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.service-offer-block-1 .price,
+.service-offer-block-2 .price {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #c49b3d;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c49b3d;
+    border-radius: 5px;
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.button:hover {
+    background-color: #ccc;
+    text-decoration: none;
+    color: black;
+}
+
+/* ===== Safety Checks section ======= */
+.bottom-section {
+    padding: 0px 20px;
+    background-color: #f5f5f5;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+.title {
+    margin: 40px 0 20px;
+}
+
+.title-text {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.product-info-section {
+    background-color: #d7d4cd;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.pi-image-block img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 30px;
+}
+
+.pi-info-block {
+    max-width: 250px;
+    text-align: left;
+    margin-top: 10px;
+}
+
+.text-block {
+    font-size: 16px;
+    line-height: 1.8;
+    text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .mot-section {
+        height: 300px;
+    }
+    .mot-title {
+        font-size: 32px;
+    }
+
+    .mot-description {
+        font-size: 12px;
+    }
+
+    .service-offer-section {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px
+    }
+    .bottom-section {
+        padding-bottom: 130px;
+    }
+
+    .product-info-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .pi-info-block {
+        max-width: 100%;
+    }
+
+    .service-offer-block-1,
+    .service-offer-block-2 {
+        width: 400px;
+        margin-top: 0px;
+    }
+
+    .mot-text {
+        margin-bottom: -20px;
+    }
+}

@@ -1,0 +1,48 @@
+version: "3.9"
+services:
+  web:
+    build: ./app
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./app/:/usr/src/app/
+    ports:
+      - 8000:8000
+
+    environment:
+      - DB_NAME=car_service_db
+      - DB_USER=useruser
+      - DB_PASSWORD=admin123
+      - DB_HOST=pg
+      - DB_PORT=5432
+      - DATABASE=postgres
+    depends_on:
+      - pg
+
+  pg:
+      container_name: pg_container
+      image: postgres:17-alpine
+      restart: always
+      environment:
+          POSTGRES_USER: useruser
+          POSTGRES_PASSWORD: admin123
+          POSTGRES_DB: car_service_db
+          POSTGRES_HOST_AUTH_METHOD: trust
+      ports:
+          - "5432:5432"
+      volumes:
+          - ./data/misc/local_backup.sql:/docker-entrypoint-initdb.d/local_backup.sql
+  pgadmin:
+      container_name: pgadmin_container
+      image: dpage/pgadmin4:5.2
+      restart: always
+      environment:
+          PGADMIN_DEFAULT_EMAIL: admin@example.com
+          PGADMIN_DEFAULT_PASSWORD: admin123
+          PGADMIN_LISTEN_PORT: 5433
+          PGADMIN_CONFIG_SERVER_MODE: "False"
+          PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
+      ports:
+          - "5433:5433"
+      depends_on:
+          - pg
+          

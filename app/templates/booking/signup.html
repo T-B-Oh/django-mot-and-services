@@ -1,0 +1,36 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/signup.css' %}">
+
+<div class="signup-desktop">
+    <div class="left-column">
+            <div class="text">
+                <div class="sign-up"> Sign up </div>
+            </div>
+            <form method="post">
+            <div class="form">
+                {% csrf_token %}
+                <input class="username-input" type="username" name="username" placeholder="Username" required>
+                <input class="email-input" type="email" name="email" placeholder="Email" required>
+                <input class="password-input" type="password" name="password1" placeholder="Password">
+                <input class="password-confirm-input" type="password" name="password2" placeholder="Password confirmation">
+                <button class="button" type="submit">Sign Up</button>
+            </div>
+            </form>
+            <div class="sign-in">
+                <span class="signin-title"> Already have an account?? </span>
+                <a class="signin-link" href="/users/login"> Sign In</a>
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    <p class="custom-message {{ message.tags }}">{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+    </div>
+    <div class="right-column">
+        <img class="container" src="{% static 'image/login.jpg'%}" />
+    </div>
+</div>
+
+{% endblock %}

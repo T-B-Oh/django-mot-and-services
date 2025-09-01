@@ -1,0 +1,267 @@
+/* ====== top section ====== */
+.top-section {
+    position: relative;
+}
+
+.top-box {
+    position: absolute;
+}
+
+.home-top {
+    width: 100vw;
+    height: 350px;
+    position: fixed;
+    left: 0px;
+    top: 20px;
+    object-fit: cover;
+}
+
+.reg-frame {
+    background: #ffffff;
+    border-radius: 20px;
+    border-style: solid;
+    border-color: rgb(37, 37, 37);
+    border-width: 2px;
+    width: 380px;
+    height: 208.78px;
+    position: absolute;
+    left: 40px;
+    top: 71px;
+    box-shadow: 0px 4px 11.8px 20px #00000040, 0px 4px 4px 0px #00000040;
+    filter: blur(0.5px);
+}
+
+.reg-input {
+    background: #fad348;
+    border-radius: 0px 10px 10px 0px;
+    width: 251px;
+    height: 61px;
+    position: relative;
+    left: 85px;
+    top: 45px;
+    color: #000000;
+    text-align: center;
+    font-family: 'Inter-Medium', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+}
+
+/* Chrome, Safari autofill fix */
+.reg-input:-webkit-autofill,
+.reg-input:-webkit-autofill:hover,
+.reg-input:-webkit-autofill:focus,
+.reg-input:-internal-autofill-selected {
+    -webkit-box-shadow: 0 0 0px 1000px #fad348 inset !important; 
+    -webkit-text-fill-color: #000 !important;
+    font-weight: bold;
+}
+
+.uk {
+    background: #161972;
+    border-radius: 10px 0px 0px 10px;
+    width: 42px;
+    height: 61px;
+    position: relative;
+    left: 45px;
+    top: -16px;
+}
+
+.reg-search-button {
+    background: #333333;
+    border-color: transparent;
+    border-radius: 5px;
+    width: 171px;
+    height: 41px;
+    position: relative;
+    left: 110px;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Inter-Medium', sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    line-height: 120%;
+}
+
+.reg-search-button:hover {
+    background: #131313;
+}
+
+
+/* ======= Middle Section 1 ======= */
+.middle-section-1 {
+    position: relative;
+    top: 380px;
+    left: 10px;
+    display: flex;
+    gap: 30px;
+    width: 95%;
+    max-width: 1440px;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: center;
+}
+
+.middle-sub-box {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    height: 246px;
+}
+
+.mot-group {
+    background: #47453d;
+}
+
+.service-group {
+    background-color: #e9a72c;
+}
+
+.money-group {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.money-group img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.book-an-mot {
+    color: #ffffff;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+.mot-description {
+    color: #c2dbfc;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 50px 10px;
+}
+
+.service-description {
+    color: #5f3000;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    padding: 20px 0px;
+}
+
+.service-title {
+    color: #ffffff;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+
+/* ==== Middle Section 2 ====== */
+.middle-section-2 {
+    position: relative;
+    top: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-box-1 {
+    background: #ffffff;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #e3e3e3;
+    border-width: 2px;
+    height: auto;
+    position: relative;
+    box-shadow: 2px 2px 2px 2px rgba(151, 151, 151, 0.25);
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+}
+
+.why-title {
+    color: #000000;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    position: relative;
+    top: 0px;
+    margin-bottom: 30px;
+}
+
+.text-box-description {
+    color: #000000;
+    text-align: left;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+}
+
+
+/* ======= Contact Section ======= */
+.contact-section {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  padding: 30px;
+  margin-top: 400px;
+  margin-bottom: 200px;
+  justify-content: center;
+  align-items: flex-start;
+  border-radius: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.map-container {
+  flex: 1;
+  min-width: 300px;
+  max-width: 600px;
+}
+
+.hours-container {
+  flex: 1;
+  min-width: 250px;
+  max-width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.hours-container h3 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.hours-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  color: #555;
+}
+
+@media screen and (max-width: 1050px) {
+    .middle-section-1 {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

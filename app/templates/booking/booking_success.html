@@ -1,0 +1,24 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static 'css/booking_success.css' %}">
+<div class="main-content">
+    <header>
+        <h2>Booking Successful</h2>
+    </header>
+    <div class="card">
+        <div class="section-header">Your Booking</div>
+        <ul class="booking-list">
+            <li>Reference: {{ data.booking_id }}</li>
+            <li>Date: {{ data.booking_date }}</li>
+            <li>Time: {{ data.booking_time }}</li>
+        </ul>
+        <div class="dashboard-btn">
+            <p>To View Your Bookings:</p>
+            <a href="/dashboard" class="btn">Dashboard</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

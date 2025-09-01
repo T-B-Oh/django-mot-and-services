@@ -1,0 +1,80 @@
+{% extends 'booking/base.html' %}
+{% load static %}
+{% block content %}
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<link rel="stylesheet" href="{% static 'css/servicing.css' %}">
+<script src="{% static 'js/servicing.js' %}"></script>
+
+
+<div class="hero">
+  <div class="hero-content">
+    <h1>Servicing</h1>
+    <p>
+      Motor vehicle servicing serves as a critical preventive maintenance activity which helps minimize the chances of experiencing car breakdowns. Regular car servicing benefits you by preserving your vehicle's value and ensuring good safety condition. Regular service includes oil filter changes, various vehicle service packages designed to meet your specific maintenance needs. Customers can choose multiple service options from 1-hr to full servicing. Book online today.
+    </p>
+  </div>
+</div>
+
+<section class="range">
+  <h2>Browse The Range</h2>
+  <div class="cards">
+    <div class="card">
+      <img src="{% static 'image/basic-service.png' %}" alt="Basic Service">
+      <h3>Basic Service</h3>
+      <p>
+        Our Basic Service keeps your car healthy and reliable. Basic Service requires attention every 6 months or 6,000 miles to maintain engine health and avoid costly repairs. Ideal for light-use drivers, mid-year checkup.
+      </p>
+      <ul>
+        <li>Engine oil replacement</li>
+        <li>Oil filter replacement</li>
+        <li>Essential safety and fluid checks</li>
+      </ul>
+          <a href="/checkout" class="booking-btn add-selection" package-code="{{ basic }}">Book</a>
+    </div>
+
+    <div class="card">
+      <img src="{% static 'image/interim-service.png' %}" alt="Interim Service">
+      <h3>Interim Service</h3>
+      <p>
+        Intended for the higher mileage driver, the Interim Service is recommended every 6 months or 8,000 miles. We also check your car's running efficiency and help identify potential problems early.
+      </p>
+      <ul>
+        <li>Engine oil replacement</li>
+        <li>Oil and Air filters replacement</li>
+        <li>Safety checks on brakes, tyres, lights, and steering</li>
+      </ul>
+          <a href="/checkout" class="booking-btn add-selection" package-code="{{ interim }}">Book</a>
+    </div>
+
+    <div class="card">
+      <img src="{% static 'image/full-service.png' %}" alt="Full Service">
+      <h3>Full Service</h3>
+      <p>
+        Recommended every 12 months or 12,000 miles. It's our most comprehensive service that covers major components to keep your car safe, efficient and road-ready throughout the year.
+      </p>
+      <ul>
+        <li>Engine oil replacement</li>
+        <li>Oil, Air & Fuel filters replacement</li>
+        <li>Complete inspection major components</li>
+      </ul>
+          <a href="/checkout" class="booking-btn add-selection" package-code="{{ full }}">Book</a>
+    </div>
+  </div>
+</section>
+
+<section class="faq">
+  <div class="faq-box">
+    <h3>How often should you service your car?</h3>
+      <p>Your car should undergo full servicing after reaching 12,000 miles or at the end of every 12 months, depending on which occurs first.</p>
+      <p>Our Engine Oil and Filter Change and Interim Servicing options serve as additional general check ups to maintain your vehicle in top condition.</p>
+      <p>Manufacturer servicing covers all major vehicle makes and models and follows official service schedules to determine service timing and requirements.</p>
+      <strong>Service Type Service Interval</strong>
+      <p>
+        The timing requirement for Interim Service is either every 6 months or 6,000 miles depending on which condition happens first. Perform a full service every 12 months or after 12,000 miles of driving depending on which milestone is reached first.
+      </p>
+    <button class="explore">Explore More</button>
+  </div>
+</section>
+
+{% endblock %}

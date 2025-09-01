@@ -1,0 +1,56 @@
+{% extends 'booking/base.html' %}
+{% block content %}
+{% load static %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> 
+<link rel="stylesheet" href="{% static 'css/pre-checkout.css' %}">
+<script src="{% static 'js/pre-checkout.js' %}"></script>
+
+
+<div class="top-section">
+    <div class="top-box">
+    </div><img class="home-top" src="{% static 'image/homepage.jpg'%}" />
+</div>
+  
+<div class="middle-section-1">
+    <div class="middle-sub-box reg-frame">
+        <div>
+            <h2>Vehicle Details</h2>
+            <p><strong> {{ vehicle_data.reg }} </strong> {{ vehicle_data.make }} {{ vehicle_data.model }} {{ vehicle_data.year }} </p>
+        </div>
+    </div>
+    <div class="middle-sub-box package-frame">
+            <h2>Packages</h2>
+            <select id="packageType" name="vehicle">
+                <option value="">Select Package</option> 
+                {% for ap in all_packages %}
+                    <option value="{{ap.package_name}}" package-code="{{ ap.id }}"> {{ ap.package_name }}</option>
+                {% endfor %}
+            </select>
+        <a href="/checkout" type="submit" class="book-btn add-selection" >Book Now</a>
+    </div>
+    <div class="middle-sub-box money-group">
+        <img src="{% static 'image/home_money.jpg'%}" alt="Sample Image">
+    </div>
+    <div class="middle-sub-box mot-group">
+        <div class="book-an-mot"> Book an MOT </div>
+        <div class="mot-description"> Book a Car MOT Online Now (Only £45 inc VAT) </div>
+    </div>
+    <div class="middle-sub-box service-group">
+        <div class="service-title"> Book A Car Service </div>
+        <div class="service-description"> Full service, interim service, or manufacturer-recommended service with prices starting from only £120. </div>
+    </div>
+</div>
+
+<div class="middle-section-2">
+    <div class="middle-sub-box text-box-1">
+      <div class="why-title"> Why choose T-Fit </div>
+      <div class="text-box-description"> Highly-Trained Technicians You Can Trust: 
+            Your safety on the road is our top priority. That’s why every T-Fit technician goes through an industry-leading, Ofsted-accredited training programme before they ever touch your car. 
+            From inspections to servicing and repairs, our experts bring not only skill but also precision and care.
+            When you choose T-Fit, you’re choosing peace of mind, reliability, and the best hands in the trade. </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,213 @@
+
+.top-section {
+    position: relative;
+}
+
+.top-box {
+    position: absolute;
+}
+
+.home-top {
+    width: 100vw;
+    height: 350px;
+    position: fixed;
+    left: 0px;
+    top: 20px;
+    object-fit: cover;
+}
+
+
+/* ==== Middle Section 1 ====== */
+.middle-section-1 {
+    position: relative;
+    top: 360px;
+    left: 10px;
+    display: flex;
+    gap: 30px;
+    width: 95%;
+    max-width: 1440px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.middle-sub-box {
+    flex: 1;
+    min-width: 250px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    border-radius: 8px;
+    height: 246px;
+}
+
+.mot-group {
+    background: #47453d;
+}
+
+.service-group {
+    background-color: #e9a72c;
+}
+
+.money-group {
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.money-group img {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.reg-frame {
+  background: #e9a72c;
+  min-width: 400px;
+  max-height: 140px;
+}
+
+.package-frame {
+  background: #aaaaaa;
+  min-width: 400px;
+  max-height: 140px;  
+}
+
+/* package select box */
+#packageType {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #8f8f8f;
+}
+
+#packageType option {
+  padding: 6px;
+  color: #444444;
+}
+
+
+
+.book-an-mot {
+    color: #ffffff;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 30px;
+    font-weight: 400;
+    -webkit-text-stroke: 1px #ffffff;
+}
+
+.mot-description {
+    color: #cfe4ff;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 50px 10px;
+}
+
+.service-description {
+    color: #5f3900;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    padding: 30px 0px;
+}
+
+.service-title {
+    color: #ffffff;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.book-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #fff;
+  background-color: #5e5e5e;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #1f1f1f !important;
+  color: #fff !important;
+}
+
+
+/* ==== Middle Section 2 ====== */
+.middle-section-2 {
+    position: relative;
+    top: 400px;
+    display: flex;
+    justify-content: center;
+}
+
+.text-box-1 {
+    background: #ffffff;
+    border-radius: 6px;
+    border-style: solid;
+    border-color: #e3e3e3;
+    border-width: 2px;
+    height: auto;
+    position: relative;
+    box-shadow: 2px 2px 2px 2px rgba(151, 151, 151, 0.25);
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 900px;
+}
+
+.why-title {
+    color: #000000;
+    text-align: center;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    position: relative;
+    top: 0px;
+    margin-bottom: 30px;
+}
+
+.text-box-description {
+    color: #000000;
+    text-align: left;
+    font-family: 'KoPubBatang-Regular', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    position: relative;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .middle-section-1 {
+        flex-direction: column;
+        gap: 20px;
+        top: 100px;
+    }
+    .top-section {
+        display: none;
+    }
+    .middle-section-2 {
+        top: 120px;
+        padding-bottom: 150px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .service-description {
+        font-size: 18px;
+        padding: 0px 0px;
+    }
+}
