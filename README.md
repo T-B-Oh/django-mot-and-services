@@ -1,99 +1,102 @@
 ## MOT & Vehicle Service Booking App (Django)
+
 ### Project Overview
 
-This is a Django-based booking system for vehicle MOT and vehicle services. Customers can book appointments for MOT or service, select available 1-hour time slots, and view in dashboard. Employees can view all bookings and change the booking status.
+This is a Django-based booking system for vehicle MOT and vehicle servicing. Customers can book appointments for MOTs or services, select available 1-hour time slots, and view their bookings in the dashboard. Employees can view all bookings and update booking statuses.
 
+## Preview
 
-⚠️ Note: This project does not connect to any official government vehicle registration database. All vehicle information is stored manually in the project's local database for demonstration and testing purposes.
+![Project preview](app/static/image/preview.png)
 
-Please use following Registeration numbers:
-(HH24BBB)
-(SS16DDD)
-(GG18NNN)
-(KK25TST)
-(TE10STT)
-<br>Note: docker compose only
+Note: This project does not connect to any official government vehicle registration database. All vehicle information is stored manually in the local project database for demonstration and testing purposes.
+
+Demo vehicle registration numbers:
+
+- `HH24BBB`
+- `SS16DDD`
+- `GG18NNN`
+- `KK25TST`
+- `TE10STT`
+
+Note: The demo data above is available when using Docker Compose with the included database backup.
 
 ## Features
 
-1. User Authentication
-    - Customers and employees have separate dashboards.
-    - Sign up, login, and logout.
-
-2. Vehicle Registration
-    - Users can search vehicles with:
-        - Registration number (which is stored in database 5 vehicles for testing purpose)
-    - Each vehicle can be linked to multiple owners.
-
-3. Booking System
-    - Bookings are for 1-hour time slots.
-    - Users can choose a date, time, and service type (MOT or Service).
-    - Already booked slots become unavailable.
-
-
-#### Employee Dashboard Features
-
-- View all bookings and Filter by today date
-- Search by booking reference number 
-- Mark bookings as completed and cancelled
+1. User authentication for customers and employees
+2. Vehicle lookup by registration number
+3. Booking flow for MOT and vehicle servicing
+4. Employee dashboard for viewing, searching, and updating bookings
 
 ## Usage
+
 ### Customer Dashboard
-Sign Up, Log in, book MOT/services, view user dashboard, etc.
+
+Customers can sign up, log in, create bookings, and view their dashboard.
 
 ### Employee Dashboard
-Access the dashboard at (http://127.0.0.1:8000/employee/dashboard/)
-<br>Login credentials:
-<br>Email: staff@example.com
-<br>Password: staffstaff
+
+Access the employee dashboard at `http://127.0.0.1:8000/employee/dashboard/`.
+
+Note: The credentials below are demonstration-only local development credentials for this sample project. Do not reuse them for real accounts, production systems, or public deployments.
+
+Login credentials:
+
+- Email: `staff@example.com`
+- Password: `staffstaff`
 
 ## Tech Stack
 
-- Backend: Django
-- Frontend: HTML, CSS, JavaScript
-- Database: PostgreSQL
-- Containerization: Docker
-- Admin Panel: Django Admin with Jazzmin
+- Django
+- PostgreSQL
+- Docker Compose
+- HTML, CSS, JavaScript
+- Jazzmin admin theme
 
 ## Installation
+
 ### Local Setup
-If you run the project locally without restoring local_backup database, it will start with a clean database. You must then populate all vehicle records, service packages and initial configurations through the admin panel for the app to work as intended.
-#### Create Virtual Environment
-```
+
+If you run the project locally without restoring `local_backup.sql`, the app starts with a clean database. In that case, you will need to create your own superuser and populate the required data through the admin panel.
+
+From the repository root:
+
+```bash
+cd app
 python -m venv venv
 . venv/Scripts/activate
-```
-#### Install Dependencies, migrate and runserver.
-```
 pip install -r requirements.txt
 python manage.py migrate
 python manage.py createsuperuser
 python manage.py runserver
 ```
-```
-http://localhost:8000/
-```
-### Docker Compose Setup
-To start with a pre-configured environment including cars, packages and a pre-existing superuser, use Docker Compose. This will restore the initial backup database (local_backup.sql) for you, allowing you to use the system right away without having to enter the data manually.
-<br>Access the admin at (http://127.0.0.1:8000/admin/)
-<br>Admin Login credentials::
-<br>supersername: admin@example.com
-<br>pw: admin
 
-Use 'HOST': 'pg_container' in settings.py for Docker Compose, instead of 'localhost', to connect with PostgreSQL container.
+Open `http://127.0.0.1:8000/`.
+
+### Docker Compose Setup
+
+Docker Compose starts the Django app, PostgreSQL, and pgAdmin using values from the root [`.env`](/c:/Users/BO/Desktop/NucampFolder/Python/3-DevOps/carservice/.env) file. It also restores the included `local_backup.sql` database so the app is ready with demonstration data.
+
+Start the containers from the repository root:
+
+```bash
+docker compose up -d --build
 ```
-'HOST': 'localhost'
-to
-'HOST': 'pg_container'
-```
-#### build and start containers
-```
-docker compose up -d
-docker-compose exec web python manage.py migrate
-```
-```
-http://127.0.0.1:8000/
-```
+
+Open:
+
+- App: `http://127.0.0.1:8000/`
+- Admin: `http://127.0.0.1:8000/admin/`
+- pgAdmin: `http://127.0.0.1:5433/`
+
+Admin credentials for the seeded Docker data:
+
+Note: These are demonstration-only local Docker credentials. Replace them before any shared, remote, or production-style deployment.
+
+- Username: `admin@example.com`
+- Password: `admin`
+
+If you change database or app settings, update [`.env`](/c:/Users/BO/Desktop/NucampFolder/Python/3-DevOps/carservice/.env) instead of editing `settings.py` directly.
 
 ## License
-This project is licensed under the MIT License# django-mot-and-services
+
+This project is licensed under the MIT License.

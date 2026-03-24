@@ -3,18 +3,20 @@ services:
   web:
     build: ./app
     command: python manage.py runserver 0.0.0.0:8000
+    env_file:
+      - .env
     volumes:
       - ./app/:/usr/src/app/
     ports:
       - 8000:8000
 
     environment:
-      - DB_NAME=car_service_db
-      - DB_USER=useruser
-      - DB_PASSWORD=admin123
-      - DB_HOST=pg
-      - DB_PORT=5432
-      - DATABASE=postgres
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_HOST=${DB_HOST}
+      - DB_PORT=${DB_PORT}
+      - DATABASE=${DATABASE}
     depends_on:
       - pg
 
@@ -22,10 +24,12 @@ services:
       container_name: pg_container
       image: postgres:17-alpine
       restart: always
+      env_file:
+          - .env
       environment:
-          POSTGRES_USER: useruser
-          POSTGRES_PASSWORD: admin123
-          POSTGRES_DB: car_service_db
+          POSTGRES_USER: ${POSTGRES_USER}
+          POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+          POSTGRES_DB: ${POSTGRES_DB}
           POSTGRES_HOST_AUTH_METHOD: trust
       ports:
           - "5432:5432"
@@ -35,10 +39,12 @@ services:
       container_name: pgadmin_container
       image: dpage/pgadmin4:5.2
       restart: always
+      env_file:
+          - .env
       environment:
-          PGADMIN_DEFAULT_EMAIL: admin@example.com
-          PGADMIN_DEFAULT_PASSWORD: admin123
-          PGADMIN_LISTEN_PORT: 5433
+          PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+          PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+          PGADMIN_LISTEN_PORT: ${PGADMIN_LISTEN_PORT}
           PGADMIN_CONFIG_SERVER_MODE: "False"
           PGADMIN_CONFIG_MASTER_PASSWORD_REQUIRED: "False"
       ports:
